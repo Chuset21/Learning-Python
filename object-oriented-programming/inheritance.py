@@ -1,6 +1,7 @@
 class User:
-    def __init__(self, email):
+    def __init__(self, email, name):
         self.email = email
+        self.name = name
 
     @staticmethod
     def attack():
@@ -9,21 +10,27 @@ class User:
 
 class Wizard(User):
     def __init__(self, email, name, power):
-        super().__init__(email)
-        self.name = name
+        super().__init__(email, name)
         self.power = power
 
-    @staticmethod
-    def attack():
-        print('wizard attack')
+    def attack(self):
+        print(f'wizard attack with power: {self.power}')
 
 
 class Archer(User):
     def __init__(self, email, name, num_arrows):
-        super().__init__(email)
-        self.name = name
+        super().__init__(email, name)
         self.num_arrows = num_arrows
 
+    def attack(self):
+        print(f'{self.num_arrows} remaining')
+
     @staticmethod
-    def attack():
-        print('archer attack')
+    def run():
+        print('run')
+
+
+class HybridBorg(Wizard, Archer):
+    def __init__(self, email, name, power, num_arrows):
+        Archer.__init__(self, email, name, num_arrows)
+        Wizard.__init__(self, email, name, power)
