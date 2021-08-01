@@ -4,11 +4,11 @@ class PlayerCharacter:
     def __init__(self, name='anonymous', age=0):
         if age > 16:
             PlayerCharacter.number_of_players += 1  # Example
-            self.name = name
-            self.age = age
+            self._name = name
+            self._age = age
 
     def __str__(self):
-        return f'name = {self.name}, age = {self.age}'
+        return f'name = {self._name}, age = {self._age}'
 
     @staticmethod
     def run():
