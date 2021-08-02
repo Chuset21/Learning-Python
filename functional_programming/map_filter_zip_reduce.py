@@ -13,6 +13,11 @@ def main():
 
     print((reduce(lambda acc, p: acc + p, my_tuple, 0)))
 
+    # List Sorting
+    a = [(0, 2), (4, 3), (10, -1), (9, 9)]
+    a.sort(key=lambda p: p[1])
+    print(a)
+
 
 if __name__ == '__main__':
     main()
